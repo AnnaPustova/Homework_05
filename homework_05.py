@@ -48,9 +48,18 @@ filtered_cars = [
     (name, details) for name, details in car_data.items()
     if details[1] >= search_criteria[0] and details[2] >= search_criteria[1] and details[4] <= search_criteria[2]
 ]
+filtered_cars_list = list(filtered_cars)
 
-for name, details in filtered_cars[:5]:
-    print(f"{name}: {details}")
+
+filtered_cars_list.sort(key=lambda x: x[1][4])
+
+
+result_cars = filtered_cars_list[:5]
+
+
+for car, details in result_cars:
+    print(f"{car}: {details}")
+
 
 # TASK_02
 
